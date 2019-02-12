@@ -94,7 +94,7 @@ public class SystemRuleManager {
     static {
         checkSystemStatus.set(false);
         statusListener = new SystemStatusListener();
-        scheduler.scheduleAtFixedRate(statusListener, 5, 500, TimeUnit.MILLISECONDS);
+        scheduler.scheduleAtFixedRate(statusListener, 5, 100, TimeUnit.MILLISECONDS);
         currentProperty.addListener(listener);
     }
 
@@ -197,11 +197,11 @@ public class SystemRuleManager {
             }
 
             RecordLog.info(String.format("[SystemRuleManager] Current system check status: %s, "
-                    + "highestSystemLoad: %f, "
-                    + "highestCpuUsage: %f, "
+                    + "highestSystemLoad: %e, "
+                    + "highestCpuUsage: %e, "
                     + "maxRt: %d, "
                     + "maxThread: %d, "
-                    + "maxQps: %f",
+                    + "maxQps: %e",
                 checkSystemStatus.get(),
                 highestSystemLoad,
                 highestCpuUsage,
